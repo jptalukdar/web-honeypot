@@ -7,12 +7,12 @@ After=network.target
 
 User=ec2-user
 
-Group=www-data
+Group=nginx
 
 WorkingDirectory=/opt/web/src
 Environment="PATH=/opt/web/venv/bin"
 
-ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:/opt/web/app.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target

@@ -19,6 +19,7 @@ def hello_world(path="/"):
     data['time'] = str(datetime.datetime.now())
     data['request_method'] = str(request.method)
     data['source'] = str(request.remote_addr)
+    data['real_host'] = request.headers.get('X-Real-Ip')
     data['headers'] = { str(k):str(v) for k,v in request.headers.items() }
     data['body'] = str(base64.b64encode(request.get_data()))
     print(data)

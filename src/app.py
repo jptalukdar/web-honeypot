@@ -24,3 +24,7 @@ def hello_world(path="/"):
     print(data)
     writeToLogFile(data)
     return f"<p>Hello, World!</p>: {path} {request.url}"
+
+if __name__ == '__main__':
+    app.debug=True
+    app.run(host="0.0.0.0",port=80)
